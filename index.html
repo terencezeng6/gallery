@@ -88,6 +88,30 @@
                 opacity: 0.9;
                 transition: 0.5s;
             }
+            @media only screen and (max-width: 769px){
+                .image{
+                    height: auto;
+                    width: 400px;
+                    border-radius: 5px;
+                }
+                .image img{
+                    height: auto;
+                    width: 100%;
+                    border-radius: 5px;
+                    display: block;
+                }
+                .gallery{
+                    display: flex;
+                    flex-direction: column;
+                    width: auto;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: flex-start;
+                    text-align: center;
+                    align-items: center;
+                    gap: 20px;
+                }
+            }
         </style>
 	</head>
 	<body class="is-preload">
@@ -128,7 +152,7 @@
                                             July 5, 2023
                                         </p>
                                         <p class="description">
-                                            majestic tortoise
+                                            tortoise!
                                         </p>
                                     </div>
                                 </div>
