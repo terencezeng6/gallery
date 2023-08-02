@@ -7,8 +7,15 @@
         <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,301,701,300,501,401,400&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="assets/css/main.css" />
         <style>
-			*{
+			*[theme="light"]{
+				background-color: white;
+                background: white;
+                transition: 0.5s;
+			}
+            *[theme="dark"]{
 				background-color: black;
+                background: black;
+                transition: 0.5s;
 			}
 			::-webkit-scrollbar{
 				width: 8px;
@@ -20,6 +27,90 @@
 				background-color: rgb(75, 75, 75);
 				border-radius: 4px;
 			}
+            label {
+                width:50px;
+                height:20px;
+                position: relative;
+                display: block;
+                background: #ebebeb;
+                border-radius: 20px;
+                box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            label::before{
+                opacity: 0;
+            }
+            label:after {
+                content: "";
+                width:18px;
+                height: 18px;
+                position: absolute;
+                top:1px;
+                left:1px;
+                background: linear-gradient(180deg,#ffffff,#aaaaaa);
+                border-radius: 18px;
+                box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+                transition: 0.3s;
+            }
+            input {
+                width: 0;
+                height: 0;
+                visibility: hidden;
+            }
+            input[type="checkbox"]{
+                width: 0;
+                height: 0;
+                visibility: hidden;
+            }
+            input:checked + label {
+                background: #242424;
+            }
+            input:checked + label:after {
+                left:49px;
+                transform: translateX(-100%);
+                background: linear-gradient(180deg,#777,#3a3a3a);
+            }
+            label:active:after{
+                width: 26px;
+            }
+            .background {
+                width:100vw;
+                height: 100vh;
+                background: #fff;
+                z-index: -1;
+                position: absolute;
+                transition: 0.3s;
+            }
+            input:checked + label + .background {
+                background:#242424;
+            }
+            label svg {
+                position: absolute;
+                width: 12px;
+                top:4px;
+                z-index: 100;
+            }
+            label svg.sun {
+                left:4px;
+                fill:#000000;
+                transition: 0.3s;
+                background-color: rgba(0, 0, 0, 0);
+            }
+            label svg.moon {
+                left:34px;
+                fill:#7e7e7e;
+                transition: 0.3s;
+                background-color: rgba(0, 0, 0, 0);
+            }
+            input:checked + label svg.sun {
+                fill:#7e7e7e;
+                background-color: rgba(0, 0, 0, 0);
+            }
+            input:checked + label svg.moon {
+                fill:#fff;
+                background-color: rgba(0, 0, 0, 0);
+            }
 			.heading{
 				font-family: "Satoshi", sans-serif;
 				text-align: center;
@@ -143,9 +234,70 @@
 							<div class="heading">
 								Terence's Gallery
 							</div>
+                            <body>
+                            <input type="checkbox" id="darkmode-toggle"/>
+                            <label for="darkmode-toggle"><svg version="1.1" class="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;" xml:space="preserve">
+                           
+                                       <rect x="152.994" y="58.921" transform="matrix(0.3827 0.9239 -0.9239 0.3827 168.6176 -118.5145)" width="40.001" height="16"/>
+                                       <rect x="46.9" y="164.979" transform="matrix(0.9239 0.3827 -0.3827 0.9239 71.29 -12.4346)" width="40.001" height="16"/>
+                                       <rect x="46.947" y="315.048" transform="matrix(0.9239 -0.3827 0.3827 0.9239 -118.531 50.2116)" width="40.001" height="16"/>
+                                       
+                                           <rect x="164.966" y="409.112" transform="matrix(-0.9238 -0.3828 0.3828 -0.9238 168.4872 891.7491)" width="16" height="39.999"/>
+                                       
+                                           <rect x="303.031" y="421.036" transform="matrix(-0.3827 -0.9239 0.9239 -0.3827 50.2758 891.6655)" width="40.001" height="16"/>
+                                       
+                                           <rect x="409.088" y="315.018" transform="matrix(-0.9239 -0.3827 0.3827 -0.9239 701.898 785.6559)" width="40.001" height="16"/>
+                                       
+                                           <rect x="409.054" y="165.011" transform="matrix(-0.9239 0.3827 -0.3827 -0.9239 891.6585 168.6574)" width="40.001" height="16"/>
+                                       <rect x="315.001" y="46.895" transform="matrix(0.9238 0.3828 -0.3828 0.9238 50.212 -118.5529)" width="16" height="39.999"/>
+                                       <path d="M248,88c-88.224,0-160,71.776-160,160s71.776,160,160,160s160-71.776,160-160S336.224,88,248,88z M248,392
+                                           c-79.4,0-144-64.6-144-144s64.6-144,144-144s144,64.6,144,144S327.4,392,248,392z"/>
+                                       <rect x="240" width="16" height="72"/>
+                                       <rect x="62.097" y="90.096" transform="matrix(0.7071 0.7071 -0.7071 0.7071 98.0963 -40.6334)" width="71.999" height="16"/>
+                                       <rect y="240" width="72" height="16"/>
+                                       
+                                           <rect x="90.091" y="361.915" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 -113.9157 748.643)" width="16" height="71.999"/>
+                                       <rect x="240" y="424" width="16" height="72"/>
+                                       
+                                           <rect x="361.881" y="389.915" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 397.8562 960.6281)" width="71.999" height="16"/>
+                                       <rect x="424" y="240" width="72" height="16"/>
+                                       <rect x="389.911" y="62.091" transform="matrix(0.7071 0.7071 -0.7071 0.7071 185.9067 -252.6357)" width="16" height="71.999"/>
+                           </svg>
+                                <svg version="1.1" class="moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                   viewBox="0 0 49.739 49.739" style="enable-background:new 0 0 49.739 49.739;" xml:space="preserve">
+                                <path d="M25.068,48.889c-9.173,0-18.017-5.06-22.396-13.804C-3.373,23.008,1.164,8.467,13.003,1.979l2.061-1.129l-0.615,2.268
+                                  c-1.479,5.459-0.899,11.25,1.633,16.306c2.75,5.493,7.476,9.587,13.305,11.526c5.831,1.939,12.065,1.492,17.559-1.258v0
+                                  c0.25-0.125,0.492-0.258,0.734-0.391l2.061-1.13l-0.585,2.252c-1.863,6.873-6.577,12.639-12.933,15.822
+                                  C32.639,48.039,28.825,48.888,25.068,48.889z M12.002,4.936c-9.413,6.428-12.756,18.837-7.54,29.253
+                                  c5.678,11.34,19.522,15.945,30.864,10.268c5.154-2.582,9.136-7.012,11.181-12.357c-5.632,2.427-11.882,2.702-17.752,0.748
+                                  c-6.337-2.108-11.473-6.557-14.463-12.528C11.899,15.541,11.11,10.16,12.002,4.936z"/></svg>
+                                   </label>
+                                   <script>
+                                    const toggle = document.getElementById('darkmode-toggle');
+                                    function handleBackgroundChange(event){
+                                        const body = document.body;
+                                        if (event.target.checked){
+                                            body.setAttribute('theme', 'dark');
+                                            document.documentElement.setAttribute('theme', 'dark');
+                                            localStorage.setItem('theme', 'dark');
+                                        }
+                                        else{
+                                            body.setAttribute('theme', 'light');
+                                            document.documentElement.setAttribute('theme', 'light');
+                                            localStorage.setItem('theme', 'light');
+                                        }
+                                    }
+                                    toggle.addEventListener('change', handleBackgroundChange);
+                                    if (localStorage.getItem('theme') === 'dark') {
+                                        toggle.checked = true;
+                                        handleBackgroundChange({ target: toggle }); // Trigger the initial change to set the dark mode
+                                    }
+                                </script>
+                                </body>
                             <div class="gallery">
                                 <div class="image">
-                                    <img src="images/album dynamic/turtle.jpg"/> 
+                                    <img src="images/album dynamic compressed/alberta.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             July 5, 2023
@@ -156,7 +308,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/china river.jpg"/> 
+                                    <img src="images/album dynamic compressed/china river.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             June 24, 2023
@@ -167,7 +319,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/tokyo building.jpg"/> 
+                                    <img src="images/album dynamic compressed/tokyo building.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             June 19, 2023
@@ -178,7 +330,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/caterpillar.jpg"/> 
+                                    <img src="images/album dynamic compressed/caterpillar.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             May 29, 2023
@@ -189,7 +341,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/cat on pillow.jpg"/> 
+                                    <img src="images/album dynamic compressed/cat on pillow.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             May 25, 2023
@@ -200,7 +352,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/graffiti.jpg"/> 
+                                    <img src="images/album dynamic compressed/graffiti.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             May 14, 2023
@@ -211,7 +363,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/graduation.jpg"/> 
+                                    <img src="images/album dynamic compressed/graduation.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             May 13, 2023
@@ -222,18 +374,18 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/everything blooms.jpg"/> 
+                                    <img src="images/album dynamic compressed/everything blooms.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             March 31, 2023
                                         </p>
                                         <p class="description">
-                                            so deep
+                                            everything blooms
                                         </p>
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/niagara.jpg"/> 
+                                    <img src="images/album dynamic compressed/niagara.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             March 14, 2023
@@ -244,7 +396,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/stingray.jpg"/> 
+                                    <img src="images/album dynamic compressed/stingray.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             March 13, 2023
@@ -255,7 +407,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/toronto gate.jpg"/> 
+                                    <img src="images/album dynamic compressed/toronto gate.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             March 13, 2023
@@ -266,7 +418,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/salmon.jpg"/> 
+                                    <img src="images/album dynamic compressed/salmon.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             February 3, 2023
@@ -277,7 +429,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/snow.jpg"/> 
+                                    <img src="images/album dynamic compressed/snow.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             January 25, 2023
@@ -288,7 +440,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/snake.jpg"/> 
+                                    <img src="images/album dynamic compressed/snake.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             January 9, 2023
@@ -299,7 +451,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/motherboard.jpg"/> 
+                                    <img src="images/album dynamic compressed/motherboard.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             January 9, 2023
@@ -310,7 +462,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/pantheon.jpg"/> 
+                                    <img src="images/album dynamic compressed/pantheon.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 25, 2022
@@ -321,7 +473,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/trevi fountain.jpg"/> 
+                                    <img src="images/album dynamic compressed/trevi fountain.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 25, 2022
@@ -332,7 +484,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/palatine hill.jpg"/> 
+                                    <img src="images/album dynamic compressed/palatine hill.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 24, 2022
@@ -343,7 +495,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/seagull.jpg"/> 
+                                    <img src="images/album dynamic compressed/seagull.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 24, 2022
@@ -354,7 +506,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/colosseum.jpg"/> 
+                                    <img src="images/album dynamic compressed/colosseum.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 24, 2022
@@ -365,7 +517,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/roman painting.jpg"/> 
+                                    <img src="images/album dynamic compressed/roman painting.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 24, 2022
@@ -376,7 +528,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/italy coast.jpg"/> 
+                                    <img src="images/album dynamic compressed/italy coast.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 22, 2022
@@ -387,7 +539,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/cliff.jpg"/> 
+                                    <img src="images/album dynamic compressed/cliff.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 22, 2022
@@ -398,7 +550,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/barred view.jpg"/> 
+                                    <img src="images/album dynamic compressed/barred view.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 22, 2022
@@ -409,7 +561,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/pisa.jpg"/> 
+                                    <img src="images/album dynamic compressed/pisa.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 22, 2022
@@ -420,7 +572,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/venice.jpg"/> 
+                                    <img src="images/album dynamic compressed/venice.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 20, 2022
@@ -431,7 +583,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/bartholomew.jpg"/> 
+                                    <img src="images/album dynamic compressed/bartholomew.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 19, 2022
@@ -443,7 +595,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/milan statue.jpg"/> 
+                                    <img src="images/album dynamic compressed/milan statue.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 19, 2022
@@ -454,7 +606,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/alps.jpg"/> 
+                                    <img src="images/album dynamic compressed/alps.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 19, 2022
@@ -465,7 +617,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/par piano.jpg"/> 
+                                    <img src="images/album dynamic compressed/par piano.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 4, 2022
@@ -476,7 +628,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/dark chocolate.jpg"/> 
+                                    <img src="images/album dynamic compressed/dark chocolate.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             December 3, 2022
@@ -487,7 +639,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/cat sitting.jpg"/> 
+                                    <img src="images/album dynamic compressed/cat sitting.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             November 25, 2022
@@ -498,7 +650,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/uiuc squirrel.jpg"/> 
+                                    <img src="images/album dynamic compressed/uiuc squirrel.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             September 8, 2022
@@ -509,7 +661,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/cat in box.jpg"/> 
+                                    <img src="images/album dynamic compressed/cat in box.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             August 10, 2022
@@ -520,7 +672,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/marmot.jpg"/> 
+                                    <img src="images/album dynamic compressed/marmot.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             June 13, 2022
@@ -531,7 +683,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/alberta4.jpg"/> 
+                                    <img src="images/album dynamic compressed/alberta4.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             June 11, 2022
@@ -542,7 +694,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/alberta3.jpg"/> 
+                                    <img src="images/album dynamic compressed/alberta3.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             June 10, 2022
@@ -553,7 +705,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/alberta.jpg"/> 
+                                    <img src="images/album dynamic compressed/alberta.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             June 10, 2022
@@ -564,7 +716,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/ram.jpg"/> 
+                                    <img src="images/album dynamic compressed/ram.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             June 10, 2022
@@ -575,7 +727,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/alberta2.jpg"/> 
+                                    <img src="images/album dynamic compressed/alberta2.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             June 10, 2022
@@ -586,7 +738,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/chomp.jpg"/> 
+                                    <img src="images/album dynamic compressed/chomp.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             June 2, 2022
@@ -597,7 +749,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/cat keyboard.jpg"/> 
+                                    <img src="images/album dynamic compressed/cat keyboard.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             May 31, 2022
@@ -608,7 +760,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/rice university.jpg"/> 
+                                    <img src="images/album dynamic compressed/rice university.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             April 14, 2022
@@ -619,7 +771,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/stalactite.jpg"/> 
+                                    <img src="images/album dynamic compressed/stalactite.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             April 13, 2022
@@ -630,7 +782,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/texas capitol.jpg"/> 
+                                    <img src="images/album dynamic compressed/texas capitol.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             April 12, 2022
@@ -641,7 +793,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/eyeball.jpg"/> 
+                                    <img src="images/album dynamic compressed/eyeball.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             April 10, 2022
@@ -652,7 +804,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/moth.jpg"/> 
+                                    <img src="images/album dynamic compressed/moth.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             April 4, 2022
@@ -663,7 +815,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/alberta4.jpg"/> 
+                                    <img src="images/album dynamic compressed/alberta4.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             March 5, 2022
@@ -674,7 +826,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/lizard.jpg"/> 
+                                    <img src="images/album dynamic compressed/lizard.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             November 27, 2021
@@ -685,7 +837,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/goat.jpg"/> 
+                                    <img src="images/album dynamic compressed/goat.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             August 4, 2021
@@ -696,7 +848,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/peanut butter.jpg"/> 
+                                    <img src="images/album dynamic compressed/peanut butter.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             January 7, 2021
@@ -707,7 +859,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/lake norman.jpg"/> 
+                                    <img src="images/album dynamic compressed/lake norman.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             November 28, 2020
@@ -718,7 +870,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/lichens.jpg"/> 
+                                    <img src="images/album dynamic compressed/lichens.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             November 28, 2020
@@ -729,7 +881,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/landscape drawing.jpg"/> 
+                                    <img src="images/album dynamic compressed/landscape drawing.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             November 2, 2020
@@ -740,7 +892,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/frog2.jpg"/> 
+                                    <img src="images/album dynamic compressed/frog2.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             October 22, 2020
@@ -751,7 +903,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/toad.jpg"/> 
+                                    <img src="images/album dynamic compressed/toad.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             August 11, 2020
@@ -762,7 +914,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/skink.jpg"/> 
+                                    <img src="images/album dynamic compressed/skink.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             July 20, 2020
@@ -773,7 +925,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/T480.jpg"/> 
+                                    <img src="images/album dynamic compressed/T480.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             May 5, 2020
@@ -784,7 +936,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/rose.jpg"/> 
+                                    <img src="images/album dynamic compressed/rose.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             April 23, 2020
@@ -795,7 +947,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/spooky sky.jpg"/> 
+                                    <img src="images/album dynamic compressed/spooky sky.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             April 7, 2020
@@ -806,7 +958,7 @@
                                     </div>
                                 </div> 
                                 <div class="image">
-                                    <img src="images/album dynamic/backyard.jpg"/> 
+                                    <img src="images/album dynamic compressed/backyard.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             March 21, 2020
@@ -817,7 +969,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/pink flower.jpg"/> 
+                                    <img src="images/album dynamic compressed/pink flower.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             March 21, 2020
@@ -828,7 +980,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/berries.jpg"/> 
+                                    <img src="images/album dynamic compressed/berries.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             January 5, 2020
@@ -839,7 +991,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/eiffel tower.jpg"/> 
+                                    <img src="images/album dynamic compressed/eiffel tower.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             August 22, 2019
@@ -850,7 +1002,7 @@
                                     </div>
                                 </div>
                                 <div class="image">
-                                    <img src="images/album dynamic/broken arm.jpg"/> 
+                                    <img src="images/album dynamic compressed/broken arm.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             June 20, 2019
@@ -861,7 +1013,7 @@
                                     </div>
                                 </div>
                                 <div class="image" style="margin-bottom: 10px;">
-                                    <img src="images/album dynamic/old pc.jpg"/> 
+                                    <img src="images/album dynamic compressed/old pc.jpg"/> 
                                     <div class="overlay">
                                         <p class="date">
                                             October 4, 2018
@@ -900,6 +1052,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+            <script src="assets/dark mode script.js"></script>
 
 	</body>
 </html>
