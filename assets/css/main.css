@@ -127,7 +127,7 @@ a {
   text-decoration: none; }
   a:hover {
     border-bottom-color: #902490;
-    color: #902490 !important; }
+    color: #902490 }
     a:hover strong {
       color: inherit; }
 
@@ -1507,7 +1507,7 @@ button,
   border-radius: 0.375em;
   border: 0;
   box-shadow: inset 0 0 0 2px #902490;
-  color: #902490 !important;
+  color: #902490;
   cursor: pointer;
   display: inline-block;
   font-family: "Bitter", serif;
