@@ -1,1040 +1,1040 @@
-<!DOCTYPE HTML>
-<html>
-	<head>  
-		<title>Gallery | Terence Zeng</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,301,701,300,501,401,400&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="assets/css/main.css" />
-        <style>
-			*[theme="light"]{
-				background-color: white;
-                background: white;
-                transition: 0.5s;
-			}
-            *[theme="dark"]{
-				background-color: black;
-                background: black;
-                transition: 0.5s;
-			}
-			::-webkit-scrollbar{
-				width: 8px;
-			}
-			::-webkit-scrollbar-track{
-				background:rgba(0, 0, 0, 0);
-			}
-			::-webkit-scrollbar-thumb{
-				background-color: rgb(75, 75, 75);
-				border-radius: 4px;
-			}
-            .switch{
-                padding-top: 50px;
-            }
-            label {
-                width:50px;
-                height:20px;
-                position: relative;
-                display: block;
-                background: #ebebeb;
-                border-radius: 20px;
-                box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
-                cursor: pointer;
-                transition: 0.3s;
-            }
-            label::before{
-                opacity: 0;
-            }
-            label:after {
-                content: "";
-                width:18px;
-                height: 18px;
-                position: absolute;
-                top:1px;
-                left:1px;
-                background: linear-gradient(180deg,#ffffff,#aaaaaa);
-                border-radius: 18px;
-                box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
-                transition: 0.3s;
-            }
-            input {
-                width: 0;
-                height: 0;
-                visibility: hidden;
-            }
-            input[type="checkbox"]{
-                width: 0;
-                height: 0;
-                visibility: hidden;
-            }
-            input:checked + label {
-                background: #242424;
-            }
-            input:checked + label:after {
-                left:49px;
-                transform: translateX(-100%);
-                background: linear-gradient(180deg,#777,#3a3a3a);
-            }
-            label:active:after{
-                width: 26px;
-            }
-            .background {
-                width:100vw;
-                height: 100vh;
-                background: #fff;
-                z-index: -1;
-                position: absolute;
-                transition: 0.3s;
-            }
-            input:checked + label + .background {
-                background:#242424;
-            }
-            label svg {
-                position: absolute;
-                width: 12px;
-                top:4px;
-                z-index: 100;
-            }
-            label svg.sun {
-                left:4px;
-                fill:#000000;
-                transition: 0.3s;
-                background-color: rgba(0, 0, 0, 0);
-            }
-            label svg.moon {
-                left:34px;
-                fill:#7e7e7e;
-                transition: 0.3s;
-                background-color: rgba(0, 0, 0, 0);
-            }
-            input:checked + label svg.sun {
-                fill:#7e7e7e;
-                background-color: rgba(0, 0, 0, 0);
-            }
-            input:checked + label svg.moon {
-                fill:#fff;
-                background-color: rgba(0, 0, 0, 0);
-            }
-			.heading{
-				font-family: "Satoshi", sans-serif;
-				text-align: center;
-				font-size: 40px;
-				font-weight: 200;
-				color: gray;
-				padding-top: 0px;
-				padding-bottom: 50px;
-			}
-            .gallery{
-                display: flex;
-                width: auto;
-                flex-wrap: wrap;
-                justify-content: center;
-                align-items: flex-start;
-                text-align: center;
-                gap: 20px;
-            }
-            .image{
-                height: 350px;
-                width: auto;
-                border-radius: 5px;
-            }
-            .image img{
-                height: 100%;
-                width: auto;
-                border-radius: 5px;
-                display: block;
-            }
-            .image .overlay{
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                border-radius: 5px;
-                padding: 5px;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.6);
-                color: white;
-                font-family: "Satoshi", sans-serif;
-                font-weight: 400;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                opacity: 0;
-                transition: 0.5s;
-            }
-            .image .overlay .date{
-                position: absolute;
-                align-items: top;
-                top: 25px;
-                font-size: 12px;
-				background: rgba(0, 0, 0, 0);
-            }
-            .image .overlay .description{
-                align-items: center;
-                margin-top: 50px;
-                margin-left: 50px;
-                margin-right: 50px;
-                font-size: 16px;
-				background: rgba(0, 0, 0, 0);
-            }
-            .image .overlay:hover{
-                opacity: 0.9;
-                transition: 0.5s;
-            }
-            @media only screen and (max-width: 769px){
+    <!DOCTYPE HTML>
+    <html>
+        <head>  
+            <title>Gallery | Terence Zeng</title>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+            <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,301,701,300,501,401,400&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="assets/css/main.css" />
+            <style>
+                *[theme="light"]{
+                    background-color: white;
+                    background: white;
+                    transition: 0.5s;
+                }
+                *[theme="dark"]{
+                    background-color: black;
+                    background: black;
+                    transition: 0.5s;
+                }
+                ::-webkit-scrollbar{
+                    width: 8px;
+                }
+                ::-webkit-scrollbar-track{
+                    background:rgba(0, 0, 0, 0);
+                }
+                ::-webkit-scrollbar-thumb{
+                    background-color: rgb(75, 75, 75);
+                    border-radius: 4px;
+                }
                 .switch{
-                    padding-left: 25px;
-                    padding-bottom: 25px;
+                    padding-top: 50px;
                 }
-                .image{
-                    height: auto;
-                    width: 75%;
-                    border-radius: 5px;
-                }
-                .image img{
-                    height: auto;
-                    width: 100%;
-                    border-radius: 5px;
+                label {
+                    width:50px;
+                    height:20px;
+                    position: relative;
                     display: block;
+                    background: #ebebeb;
+                    border-radius: 20px;
+                    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+                    cursor: pointer;
+                    transition: 0.3s;
+                }
+                label::before{
+                    opacity: 0;
+                }
+                label:after {
+                    content: "";
+                    width:18px;
+                    height: 18px;
+                    position: absolute;
+                    top:1px;
+                    left:1px;
+                    background: linear-gradient(180deg,#ffffff,#aaaaaa);
+                    border-radius: 18px;
+                    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+                    transition: 0.3s;
+                }
+                input {
+                    width: 0;
+                    height: 0;
+                    visibility: hidden;
+                }
+                input[type="checkbox"]{
+                    width: 0;
+                    height: 0;
+                    visibility: hidden;
+                }
+                input:checked + label {
+                    background: #242424;
+                }
+                input:checked + label:after {
+                    left:49px;
+                    transform: translateX(-100%);
+                    background: linear-gradient(180deg,#777,#3a3a3a);
+                }
+                label:active:after{
+                    width: 26px;
+                }
+                .background {
+                    width:100vw;
+                    height: 100vh;
+                    background: #fff;
+                    z-index: -1;
+                    position: absolute;
+                    transition: 0.3s;
+                }
+                input:checked + label + .background {
+                    background:#242424;
+                }
+                label svg {
+                    position: absolute;
+                    width: 12px;
+                    top:4px;
+                    z-index: 100;
+                }
+                label svg.sun {
+                    left:4px;
+                    fill:#000000;
+                    transition: 0.3s;
+                    background-color: rgba(0, 0, 0, 0);
+                }
+                label svg.moon {
+                    left:34px;
+                    fill:#7e7e7e;
+                    transition: 0.3s;
+                    background-color: rgba(0, 0, 0, 0);
+                }
+                input:checked + label svg.sun {
+                    fill:#7e7e7e;
+                    background-color: rgba(0, 0, 0, 0);
+                }
+                input:checked + label svg.moon {
+                    fill:#fff;
+                    background-color: rgba(0, 0, 0, 0);
+                }
+                .heading{
+                    font-family: "Satoshi", sans-serif;
+                    text-align: center;
+                    font-size: 40px;
+                    font-weight: 200;
+                    color: gray;
+                    padding-top: 0px;
+                    padding-bottom: 50px;
                 }
                 .gallery{
                     display: flex;
-                    flex-direction: column;
                     width: auto;
                     flex-wrap: wrap;
                     justify-content: center;
                     align-items: flex-start;
                     text-align: center;
-                    align-items: center;
                     gap: 20px;
                 }
-            }
-        </style>
-	</head>
-	<body class="is-preload">
+                .image{
+                    height: 350px;
+                    width: auto;
+                    border-radius: 5px;
+                }
+                .image img{
+                    height: 100%;
+                    width: auto;
+                    border-radius: 5px;
+                    display: block;
+                }
+                .image .overlay{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    border-radius: 5px;
+                    padding: 5px;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.6);
+                    color: white;
+                    font-family: "Satoshi", sans-serif;
+                    font-weight: 400;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0;
+                    transition: 0.5s;
+                }
+                .image .overlay .date{
+                    position: absolute;
+                    align-items: top;
+                    top: 25px;
+                    font-size: 12px;
+                    background: rgba(0, 0, 0, 0);
+                }
+                .image .overlay .description{
+                    align-items: center;
+                    margin-top: 50px;
+                    margin-left: 50px;
+                    margin-right: 50px;
+                    font-size: 16px;
+                    background: rgba(0, 0, 0, 0);
+                }
+                .image .overlay:hover{
+                    opacity: 0.9;
+                    transition: 0.5s;
+                }
+                @media only screen and (max-width: 769px){
+                    .switch{
+                        padding-left: 25px;
+                        padding-bottom: 25px;
+                    }
+                    .image{
+                        height: auto;
+                        width: 75%;
+                        border-radius: 5px;
+                    }
+                    .image img{
+                        height: auto;
+                        width: 100%;
+                        border-radius: 5px;
+                        display: block;
+                    }
+                    .gallery{
+                        display: flex;
+                        flex-direction: column;
+                        width: auto;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        align-items: flex-start;
+                        text-align: center;
+                        align-items: center;
+                        gap: 20px;
+                    }
+                }
+            </style>
+        </head>
+        <body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+            <!-- Wrapper -->
+                <div id="wrapper">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<!--
-								Header
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
-									<ul class="icons">
-										<li>
-										<header>
-											<p>Contact Me:</p>
-										</header>
-										</li>
-										<li><a href="https://www.linkedin.com/in/terence-zeng-/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-										<li><a href="https://github.com/terencezeng6" class="icon brands fa-github"><span class="label">Github</span></a></li>
-										<li><a href="mailto: terencezeng2004@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-										<li><a href="https://www.instagram.com/terence.zeng/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									</ul>
-								</header>
-							-->
-							
-							<!-- Content -->
-                            <body>
-                            <div class="switch">
-                            <input type="checkbox" id="darkmode-toggle"/>
-                            <label for="darkmode-toggle">
-                                <svg version="1.1" class="moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                   viewBox="0 0 49.739 49.739" style="enable-background:new 0 0 49.739 49.739;" xml:space="preserve">
-                                <path d="M25.068,48.889c-9.173,0-18.017-5.06-22.396-13.804C-3.373,23.008,1.164,8.467,13.003,1.979l2.061-1.129l-0.615,2.268
-                                  c-1.479,5.459-0.899,11.25,1.633,16.306c2.75,5.493,7.476,9.587,13.305,11.526c5.831,1.939,12.065,1.492,17.559-1.258v0
-                                  c0.25-0.125,0.492-0.258,0.734-0.391l2.061-1.13l-0.585,2.252c-1.863,6.873-6.577,12.639-12.933,15.822
-                                  C32.639,48.039,28.825,48.888,25.068,48.889z M12.002,4.936c-9.413,6.428-12.756,18.837-7.54,29.253
-                                  c5.678,11.34,19.522,15.945,30.864,10.268c5.154-2.582,9.136-7.012,11.181-12.357c-5.632,2.427-11.882,2.702-17.752,0.748
-                                  c-6.337-2.108-11.473-6.557-14.463-12.528C11.899,15.541,11.11,10.16,12.002,4.936z"/></svg>
-                                   </label>
-                                   <script>
-                                    const toggle = document.getElementById('darkmode-toggle');
-                                    function handleBackgroundChange(event){
-                                        const body = document.body;
-                                        if (event.target.checked){
-                                            body.setAttribute('theme', 'dark');
-                                            document.documentElement.setAttribute('theme', 'dark');
-                                            localStorage.setItem('theme', 'dark');
+                    <!-- Main -->
+                        <div id="main">
+                            <div class="inner">
+                                <!--
+                                    Header
+                                    <header id="header">
+                                        <a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+                                        <ul class="icons">
+                                            <li>
+                                            <header>
+                                                <p>Contact Me:</p>
+                                            </header>
+                                            </li>
+                                            <li><a href="https://www.linkedin.com/in/terence-zeng-/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                                            <li><a href="https://github.com/terencezeng6" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                                            <li><a href="mailto: terencezeng2004@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                                            <li><a href="https://www.instagram.com/terence.zeng/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                        </ul>
+                                    </header>
+                                -->
+                                
+                                <!-- Content -->
+                                <body>
+                                <div class="switch">
+                                <input type="checkbox" id="darkmode-toggle"/>
+                                <label for="darkmode-toggle">
+                                    <svg version="1.1" class="moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                    viewBox="0 0 49.739 49.739" style="enable-background:new 0 0 49.739 49.739;" xml:space="preserve">
+                                    <path d="M25.068,48.889c-9.173,0-18.017-5.06-22.396-13.804C-3.373,23.008,1.164,8.467,13.003,1.979l2.061-1.129l-0.615,2.268
+                                    c-1.479,5.459-0.899,11.25,1.633,16.306c2.75,5.493,7.476,9.587,13.305,11.526c5.831,1.939,12.065,1.492,17.559-1.258v0
+                                    c0.25-0.125,0.492-0.258,0.734-0.391l2.061-1.13l-0.585,2.252c-1.863,6.873-6.577,12.639-12.933,15.822
+                                    C32.639,48.039,28.825,48.888,25.068,48.889z M12.002,4.936c-9.413,6.428-12.756,18.837-7.54,29.253
+                                    c5.678,11.34,19.522,15.945,30.864,10.268c5.154-2.582,9.136-7.012,11.181-12.357c-5.632,2.427-11.882,2.702-17.752,0.748
+                                    c-6.337-2.108-11.473-6.557-14.463-12.528C11.899,15.541,11.11,10.16,12.002,4.936z"/></svg>
+                                    </label>
+                                    <script>
+                                        const toggle = document.getElementById('darkmode-toggle');
+                                        function handleBackgroundChange(event){
+                                            const body = document.body;
+                                            if (event.target.checked){
+                                                body.setAttribute('theme', 'dark');
+                                                document.documentElement.setAttribute('theme', 'dark');
+                                                localStorage.setItem('theme', 'dark');
+                                            }
+                                            else{
+                                                body.setAttribute('theme', 'light');
+                                                document.documentElement.setAttribute('theme', 'light');
+                                                localStorage.setItem('theme', 'light');
+                                            }
                                         }
-                                        else{
-                                            body.setAttribute('theme', 'light');
-                                            document.documentElement.setAttribute('theme', 'light');
-                                            localStorage.setItem('theme', 'light');
+                                        toggle.addEventListener('change', handleBackgroundChange);
+                                        if (localStorage.getItem('theme') === 'dark') {
+                                            toggle.checked = true;
+                                            handleBackgroundChange({ target: toggle }); // Trigger the initial change to set the dark mode
                                         }
-                                    }
-                                    toggle.addEventListener('change', handleBackgroundChange);
-                                    if (localStorage.getItem('theme') === 'dark') {
-                                        toggle.checked = true;
-                                        handleBackgroundChange({ target: toggle }); // Trigger the initial change to set the dark mode
-                                    }
-                                </script>
-                                </div>
-                                </body>
-                                <div class="heading">
-                                    Terence's Gallery
-                                </div>
-                            <div class="gallery">
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/turtle.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            July 5, 2023
-                                        </p>
-                                        <p class="description">
-                                            tortoise!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/china river.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            June 24, 2023
-                                        </p>
-                                        <p class="description">
-                                            least dirty river in China
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/tokyo building.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            June 19, 2023
-                                        </p>
-                                        <p class="description">
-                                            aaaaaaaa this is the prettiest building i've ever seen
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/caterpillar.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            May 29, 2023
-                                        </p>
-                                        <p class="description">
-                                            interesting caterpillar
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/cat on pillow.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            May 25, 2023
-                                        </p>
-                                        <p class="description">
-                                            cat on pillow &lt;3
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/graffiti.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            May 14, 2023
-                                        </p>
-                                        <p class="description">
-                                            kingfisher!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/graduation.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            May 13, 2023
-                                        </p>
-                                        <p class="description">
-                                            yayy graduated from uiuc! (jk)
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/everything blooms.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            March 31, 2023
-                                        </p>
-                                        <p class="description">
-                                            everything blooms
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/niagara.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            March 14, 2023
-                                        </p>
-                                        <p class="description">
-                                            niagara falls
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/stingray.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            March 13, 2023
-                                        </p>
-                                        <p class="description">
-                                            stingray
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/toronto gate.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            March 13, 2023
-                                        </p>
-                                        <p class="description">
-                                            i miss this city :'&#40;
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/salmon.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            February 3, 2023
-                                        </p>
-                                        <p class="description">
-                                            salmon
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/snow.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            January 25, 2023
-                                        </p>
-                                        <p class="description">
-                                            first snow @ uiuc!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/snake.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            January 9, 2023
-                                        </p>
-                                        <p class="description">
-                                            garter snake
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/motherboard.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            January 9, 2023
-                                        </p>
-                                        <p class="description">
-                                            new mobo hehe
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/pantheon.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 25, 2022
-                                        </p>
-                                        <p class="description">
-                                            The Pantheon, Rome
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/trevi fountain.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 25, 2022
-                                        </p>
-                                        <p class="description">
-                                            Trevi Fountain
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/palatine hill.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 24, 2022
-                                        </p>
-                                        <p class="description">
-                                            Palatine Hill - Milan
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/seagull.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 24, 2022
-                                        </p>
-                                        <p class="description">
-                                            seagull
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/colosseum.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 24, 2022
-                                        </p>
-                                        <p class="description">
-                                            colosseum
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/roman painting.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 24, 2022
-                                        </p>
-                                        <p class="description">
-                                            mathletes 2000 years ago be like...
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/italy coast.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 22, 2022
-                                        </p>
-                                        <p class="description">
-                                            italy coast
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/cliff.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 22, 2022
-                                        </p>
-                                        <p class="description">
-                                            jump?
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/barred view.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 22, 2022
-                                        </p>
-                                        <p class="description">
-                                            italy ruins
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/pisa.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 22, 2022
-                                        </p>
-                                        <p class="description">
-                                            pisa!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/venice.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 20, 2022
-                                        </p>
-                                        <p class="description">
-                                            venice canals
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/bartholomew.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 19, 2022
-                                        </p>
-                                        <p class="description">
-                                            what happens when you don't skip leg day (actually it depicts Bartholomew
-                                            the Apostle after he was skinned alive)
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/milan statue.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 19, 2022
-                                        </p>
-                                        <p class="description">
-                                            Statua di Vittorio Emanuele II
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/alps.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 19, 2022
-                                        </p>
-                                        <p class="description">
-                                            flying over the alps
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/par piano.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 4, 2022
-                                        </p>
-                                        <p class="description">
-                                            piano at par (isr &lt; par &lt; far &lt; newmark)
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/dark chocolate.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            December 3, 2022
-                                        </p>
-                                        <p class="description">
-                                            100% cacao looks super gross but somehow tastes decent
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/cat sitting.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            November 25, 2022
-                                        </p>
-                                        <p class="description">
-                                            what's wrong with my cat
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/uiuc squirrel.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            September 8, 2022
-                                        </p>
-                                        <p class="description">
-                                            uiuc squirrel (i did not feed it)
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/cat in box.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            August 10, 2022
-                                        </p>
-                                        <p class="description">
-                                            he likes cardboard boxes
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/marmot.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            June 13, 2022
-                                        </p>
-                                        <p class="description">
-                                            marmot posing on a rock
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/alberta4.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            June 11, 2022
-                                        </p>
-                                        <p class="description">
-                                            beautiful view of the mountains in banff, alberta
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/alberta3.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            June 10, 2022
-                                        </p>
-                                        <p class="description">
-                                            more mountains
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/alberta.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            June 10, 2022
-                                        </p>
-                                        <p class="description">
-                                            semi-frozen lake
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/ram.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            June 10, 2022
-                                        </p>
-                                        <p class="description">
-                                            ram
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/alberta2.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            June 10, 2022
-                                        </p>
-                                        <p class="description">
-                                            perfect weather perfect view
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/chomp.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            June 2, 2022
-                                        </p>
-                                        <p class="description">
-                                            chomp!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/cat keyboard.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            May 31, 2022
-                                        </p>
-                                        <p class="description">
-                                            cat loves the keyboard
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/rice university.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            April 14, 2022
-                                        </p>
-                                        <p class="description">
-                                            大米
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/stalactite.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            April 13, 2022
-                                        </p>
-                                        <p class="description">
-                                            stalactite
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/texas capitol.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            April 12, 2022
-                                        </p>
-                                        <p class="description">
-                                            texas capitol
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/eyeball.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            April 10, 2022
-                                        </p>
-                                        <p class="description">
-                                            vel'koz irl
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/moth.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            April 4, 2022
-                                        </p>
-                                        <p class="description">
-                                            atlas moth
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/alberta4.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            March 5, 2022
-                                        </p>
-                                        <p class="description">
-                                            my smores technique is impeccable
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/lizard.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            November 27, 2021
-                                        </p>
-                                        <p class="description">
-                                            lizard
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/goat.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            August 4, 2021
-                                        </p>
-                                        <p class="description">
-                                            goat with very interesting fur
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/peanut butter.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            January 7, 2021
-                                        </p>
-                                        <p class="description">
-                                            yummy peanut butter cookies
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/lake norman.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            November 28, 2020
-                                        </p>
-                                        <p class="description">
-                                            some lake in charlotte (probably norman)
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/lichens.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            November 28, 2020
-                                        </p>
-                                        <p class="description">
-                                            super cool lichens
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/landscape drawing.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            November 2, 2020
-                                        </p>
-                                        <p class="description">
-                                            sketch of landscape on my phone
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/frog2.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            October 22, 2020
-                                        </p>
-                                        <p class="description">
-                                            american green tree frog
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/toad.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            August 11, 2020
-                                        </p>
-                                        <p class="description">
-                                            ugly toad
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/skink.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            July 20, 2020
-                                        </p>
-                                        <p class="description">
-                                            this blue-tailed skink is so cool!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/T480.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            May 5, 2020
-                                        </p>
-                                        <p class="description">
-                                            opening up my laptop for the eighth time because i broke something again
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/rose.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            April 23, 2020
-                                        </p>
-                                        <p class="description">
-                                            rose after the rain
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/spooky sky.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            April 7, 2020
-                                        </p>
-                                        <p class="description">
-                                            spooky sky
-                                        </p>
-                                    </div>
-                                </div> 
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/backyard.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            March 21, 2020
-                                        </p>
-                                        <p class="description">
-                                            right outside my backyard
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/pink flower.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            March 21, 2020
-                                        </p>
-                                        <p class="description">
-                                            pink magnolia (i think)
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/berries.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            January 5, 2020
-                                        </p>
-                                        <p class="description">
-                                            berries
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/eiffel tower.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            August 22, 2019
-                                        </p>
-                                        <p class="description">
-                                            eiffel tower (ugh the angle is so good but the colors are so distorted)
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image">
-                                    <img src="images/album dynamic compressed/broken arm.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            June 20, 2019
-                                        </p>
-                                        <p class="description">
-                                            owww
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="image" style="margin-bottom: 10px;">
-                                    <img src="images/album dynamic compressed/old pc.jpg"/> 
-                                    <div class="overlay">
-                                        <p class="date">
-                                            October 4, 2018
-                                        </p>
-                                        <p class="description">
-                                            finally upgraded to a 1050! (this cable management is sooo horrendous)
-                                        </p>
+                                    </script>
+                                    </div>
+                                    </body>
+                                    <div class="heading">
+                                        Terence's Gallery
+                                    </div>
+                                <div class="gallery">
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/turtle.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                July 5, 2023
+                                            </p>
+                                            <p class="description">
+                                                tortoise!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/china river.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                June 24, 2023
+                                            </p>
+                                            <p class="description">
+                                                least dirty river in China
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/tokyo building.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                June 19, 2023
+                                            </p>
+                                            <p class="description">
+                                                aaaaaaaa this is the prettiest building i've ever seen
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/caterpillar.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                May 29, 2023
+                                            </p>
+                                            <p class="description">
+                                                interesting caterpillar
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/cat on pillow.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                May 25, 2023
+                                            </p>
+                                            <p class="description">
+                                                cat on pillow &lt;3
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/graffiti.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                May 14, 2023
+                                            </p>
+                                            <p class="description">
+                                                kingfisher!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/graduation.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                May 13, 2023
+                                            </p>
+                                            <p class="description">
+                                                yayy graduated from uiuc! (jk)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/everything blooms.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                March 31, 2023
+                                            </p>
+                                            <p class="description">
+                                                everything blooms
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/niagara.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                March 14, 2023
+                                            </p>
+                                            <p class="description">
+                                                niagara falls
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/stingray.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                March 13, 2023
+                                            </p>
+                                            <p class="description">
+                                                stingray
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/toronto gate.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                March 13, 2023
+                                            </p>
+                                            <p class="description">
+                                                i miss this city :'&#40;
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/salmon.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                February 3, 2023
+                                            </p>
+                                            <p class="description">
+                                                salmon
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/snow.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                January 25, 2023
+                                            </p>
+                                            <p class="description">
+                                                first snow @ uiuc!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/snake.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                January 9, 2023
+                                            </p>
+                                            <p class="description">
+                                                garter snake
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/motherboard.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                January 9, 2023
+                                            </p>
+                                            <p class="description">
+                                                new mobo hehe
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/pantheon.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 25, 2022
+                                            </p>
+                                            <p class="description">
+                                                The Pantheon, Rome
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/trevi fountain.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 25, 2022
+                                            </p>
+                                            <p class="description">
+                                                Trevi Fountain
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/palatine hill.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 24, 2022
+                                            </p>
+                                            <p class="description">
+                                                Palatine Hill - Rome
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/seagull.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 24, 2022
+                                            </p>
+                                            <p class="description">
+                                                seagull
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/colosseum.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 24, 2022
+                                            </p>
+                                            <p class="description">
+                                                colosseum
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/roman painting.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 24, 2022
+                                            </p>
+                                            <p class="description">
+                                                mathletes 2000 years ago be like...
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/italy coast.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 22, 2022
+                                            </p>
+                                            <p class="description">
+                                                italy coast
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/cliff.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 22, 2022
+                                            </p>
+                                            <p class="description">
+                                                jump?
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/barred view.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 22, 2022
+                                            </p>
+                                            <p class="description">
+                                                italy ruins
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/pisa.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 22, 2022
+                                            </p>
+                                            <p class="description">
+                                                pisa!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/venice.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 20, 2022
+                                            </p>
+                                            <p class="description">
+                                                venice canals
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/bartholomew.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 19, 2022
+                                            </p>
+                                            <p class="description">
+                                                what happens when you don't skip leg day (actually it depicts Bartholomew
+                                                the Apostle after he was skinned alive)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/milan statue.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 19, 2022
+                                            </p>
+                                            <p class="description">
+                                                Statua di Vittorio Emanuele II
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/alps.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 19, 2022
+                                            </p>
+                                            <p class="description">
+                                                flying over the alps
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/par piano.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 4, 2022
+                                            </p>
+                                            <p class="description">
+                                                piano at par (isr &lt; par &lt; far &lt; newmark)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/dark chocolate.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                December 3, 2022
+                                            </p>
+                                            <p class="description">
+                                                100% cacao looks super gross but somehow tastes decent
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/cat sitting.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                November 25, 2022
+                                            </p>
+                                            <p class="description">
+                                                what's wrong with my cat
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/uiuc squirrel.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                September 8, 2022
+                                            </p>
+                                            <p class="description">
+                                                uiuc squirrel (i did not feed it)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/cat in box.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                August 10, 2022
+                                            </p>
+                                            <p class="description">
+                                                he likes cardboard boxes
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/marmot.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                June 13, 2022
+                                            </p>
+                                            <p class="description">
+                                                marmot posing on a rock
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/alberta4.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                June 11, 2022
+                                            </p>
+                                            <p class="description">
+                                                beautiful view of the mountains in banff, alberta
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/alberta3.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                June 10, 2022
+                                            </p>
+                                            <p class="description">
+                                                more mountains
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/alberta.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                June 10, 2022
+                                            </p>
+                                            <p class="description">
+                                                semi-frozen lake
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/ram.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                June 10, 2022
+                                            </p>
+                                            <p class="description">
+                                                ram
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/alberta2.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                June 10, 2022
+                                            </p>
+                                            <p class="description">
+                                                perfect weather perfect view
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/chomp.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                June 2, 2022
+                                            </p>
+                                            <p class="description">
+                                                chomp!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/cat keyboard.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                May 31, 2022
+                                            </p>
+                                            <p class="description">
+                                                cat loves the keyboard
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/rice university.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                April 14, 2022
+                                            </p>
+                                            <p class="description">
+                                                大米
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/stalactite.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                April 13, 2022
+                                            </p>
+                                            <p class="description">
+                                                stalactite
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/texas capitol.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                April 12, 2022
+                                            </p>
+                                            <p class="description">
+                                                texas capitol
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/eyeball.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                April 10, 2022
+                                            </p>
+                                            <p class="description">
+                                                vel'koz irl
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/moth.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                April 4, 2022
+                                            </p>
+                                            <p class="description">
+                                                atlas moth
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/alberta4.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                March 5, 2022
+                                            </p>
+                                            <p class="description">
+                                                my smores technique is impeccable
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/lizard.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                November 27, 2021
+                                            </p>
+                                            <p class="description">
+                                                lizard
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/goat.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                August 4, 2021
+                                            </p>
+                                            <p class="description">
+                                                goat with very interesting fur
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/peanut butter.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                January 7, 2021
+                                            </p>
+                                            <p class="description">
+                                                yummy peanut butter cookies
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/lake norman.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                November 28, 2020
+                                            </p>
+                                            <p class="description">
+                                                some lake in charlotte (probably norman)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/lichens.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                November 28, 2020
+                                            </p>
+                                            <p class="description">
+                                                super cool lichens
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/landscape drawing.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                November 2, 2020
+                                            </p>
+                                            <p class="description">
+                                                sketch of landscape on my phone
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/frog2.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                October 22, 2020
+                                            </p>
+                                            <p class="description">
+                                                american green tree frog
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/toad.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                August 11, 2020
+                                            </p>
+                                            <p class="description">
+                                                ugly toad
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/skink.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                July 20, 2020
+                                            </p>
+                                            <p class="description">
+                                                this blue-tailed skink is so cool!
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/T480.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                May 5, 2020
+                                            </p>
+                                            <p class="description">
+                                                opening up my laptop for the eighth time because i broke something again
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/rose.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                April 23, 2020
+                                            </p>
+                                            <p class="description">
+                                                rose after the rain
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/spooky sky.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                April 7, 2020
+                                            </p>
+                                            <p class="description">
+                                                spooky sky
+                                            </p>
+                                        </div>
+                                    </div> 
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/backyard.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                March 21, 2020
+                                            </p>
+                                            <p class="description">
+                                                right outside my backyard
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/pink flower.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                March 21, 2020
+                                            </p>
+                                            <p class="description">
+                                                pink magnolia (i think)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/berries.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                January 5, 2020
+                                            </p>
+                                            <p class="description">
+                                                berries
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/eiffel tower.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                August 22, 2019
+                                            </p>
+                                            <p class="description">
+                                                eiffel tower (ugh the angle is so good but the colors are so distorted)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image">
+                                        <img src="images/album dynamic compressed/broken arm.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                June 20, 2019
+                                            </p>
+                                            <p class="description">
+                                                owww
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="image" style="margin-bottom: 10px;">
+                                        <img src="images/album dynamic compressed/old pc.jpg"/> 
+                                        <div class="overlay">
+                                            <p class="date">
+                                                October 4, 2018
+                                            </p>
+                                            <p class="description">
+                                                finally upgraded to a 1050! (this cable management is sooo horrendous)
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-						</div>
-					</div>
-				<!--
+                        </div>
+                    <!--
 
-				Sidebar
-					<div id="sidebar">
-						<div class="inner">
-							Menu
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2 heading for menu (not necessary)
-									</header>
-									<ul>
-										<li><a href="about.html">About</a></li>
-									</ul>
-								</nav>
-						</div>
-					</div>
-									
-				-->
-			</div>
+                    Sidebar
+                        <div id="sidebar">
+                            <div class="inner">
+                                Menu
+                                    <nav id="menu">
+                                        <header class="major">
+                                            <h2>Menu</h2 heading for menu (not necessary)
+                                        </header>
+                                        <ul>
+                                            <li><a href="about.html">About</a></li>
+                                        </ul>
+                                    </nav>
+                            </div>
+                        </div>
+                                        
+                    -->
+                </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-            <script src="assets/dark mode script.js"></script>
+            <!-- Scripts -->
+                <script src="assets/js/jquery.min.js"></script>
+                <script src="assets/js/browser.min.js"></script>
+                <script src="assets/js/breakpoints.min.js"></script>
+                <script src="assets/js/util.js"></script>
+                <script src="assets/js/main.js"></script>
+                <script src="assets/dark mode script.js"></script>
 
-	</body>
-</html>
+        </body>
+    </html>
