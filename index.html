@@ -43,7 +43,8 @@
                     border-radius: 20px;
                     box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
                     cursor: pointer;
-                    transition: 0.3s;
+                    transition: 0.5s;
+                    transition: filter 0s, ease-in-out 0.5s;
                 }
                 label::before{
                     opacity: 0;
@@ -58,7 +59,7 @@
                     background: linear-gradient(180deg,#ffffff,#aaaaaa);
                     border-radius: 18px;
                     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
-                    transition: 0.3s;
+                    transition: 0.5s;
                 }
                 input {
                     width: 0;
@@ -81,13 +82,50 @@
                 label:active:after{
                     width: 26px;
                 }
-                .background {
-                    width:100vw;
-                    height: 100vh;
-                    background: #fff;
-                    z-index: -1;
+                .popup{
+                    position: fixed;
+                    top: -100%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 50%;
+                    max-width: 400px;
+                    padding: 25px;
+                    border-radius: 5px;
+                    box-shadow: 0px 2px 2px 4px rgba(0, 0, 0, 0.1);
+                    z-index: 1;
+                    transition: top 0s ease-in-out 0s, opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+                }
+                .popup[theme="dark"]{
+                    background-color: black;
+                }
+                .popup[theme="light"]{
+                    background-color: white;
+                }
+                .popup h2{
+                    font-family: "Satoshi", sans-serif;
+                    color: gray;
+                }
+                .popup p{
+                    font-family: "Satoshi", sans-serif;
+                }
+                .popup .close-btn{
                     position: absolute;
-                    transition: 0.3s;
+                    top: 15px;
+                    right: 15px;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    color: gray;
+                }
+                body.active-popup .gallery, body.active-popup .about, body.active-popup .heading, body.active-popup label{
+                    filter:blur(15px);
+                    transition:filter 0.5s ease-in-out 0s;
+                }
+                body.active-popup .popup{
+                    top: 50%;
+                    opacity: 1;
+                    margin-top: 0;
+                    transition: top 0s ease-in-out 0s, opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out;
                 }
                 input:checked + label + .background {
                     background:#242424;
@@ -97,6 +135,7 @@
                     width: 12px;
                     top:4px;
                     z-index: 100;
+                    transition: 0.3s;
                 }
                 label svg.sun {
                     left:4px;
@@ -126,6 +165,24 @@
                     color: gray;
                     padding-top: 0px;
                     padding-bottom: 50px;
+                    transition: filter 0s, ease-in-out 0.5s;
+                }
+                .about{
+                    font-family: Satoshi, sans-serif;
+                    color: gray;
+                    font-weight: 200;
+                    text-transform: none;
+                    font-size: 16px;
+                    padding-left: 25px;
+                    padding-right: 25px;
+                    text-align: center;
+                    position: absolute;
+                    top: 25px;
+                    right: 25px;
+                    transition: filter 0s, ease-in-out 0.5s;
+                }
+                .about:hover{
+                    background-color: rgba(150, 150, 150, 0.2);
                 }
                 .gallery{
                     display: flex;
@@ -135,6 +192,7 @@
                     align-items: flex-start;
                     text-align: center;
                     gap: 20px;
+                    transition: filter 0s, ease-in-out 0.5s;
                 }
                 .image{
                     height: 350px;
@@ -164,7 +222,7 @@
                     align-items: center;
                     justify-content: center;
                     opacity: 0;
-                    transition: 0.5s;
+                    transition: 0s;
                 }
                 .image .overlay .date{
                     position: absolute;
@@ -202,7 +260,7 @@
                 }
                 .image .overlay:hover{
                     opacity: 0.9;
-                    transition: 0.5s;
+                    transition: 0s;
                 }
                 @media only screen and (max-width: 769px){
                     .switch{
@@ -242,23 +300,6 @@
                     <!-- Main -->
                         <div id="main">
                             <div class="inner">
-                                <!--
-                                    Header
-                                    <header id="header">
-                                        <a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
-                                        <ul class="icons">
-                                            <li>
-                                            <header>
-                                                <p>Contact Me:</p>
-                                            </header>
-                                            </li>
-                                            <li><a href="https://www.linkedin.com/in/terence-zeng-/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                                            <li><a href="https://github.com/terencezeng6" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                                            <li><a href="mailto: terencezeng2004@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-                                            <li><a href="https://www.instagram.com/terence.zeng/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                                        </ul>
-                                    </header>
-                                -->
                                 
                                 <!-- Content -->
                                 <body>
@@ -273,33 +314,27 @@
                                     C32.639,48.039,28.825,48.888,25.068,48.889z M12.002,4.936c-9.413,6.428-12.756,18.837-7.54,29.253
                                     c5.678,11.34,19.522,15.945,30.864,10.268c5.154-2.582,9.136-7.012,11.181-12.357c-5.632,2.427-11.882,2.702-17.752,0.748
                                     c-6.337-2.108-11.473-6.557-14.463-12.528C11.899,15.541,11.11,10.16,12.002,4.936z"/></svg>
-                                    </label>
-                                    <script>
-                                        const toggle = document.getElementById('darkmode-toggle');
-                                        function handleBackgroundChange(event){
-                                            const body = document.body;
-                                            if (event.target.checked){
-                                                body.setAttribute('theme', 'dark');
-                                                document.documentElement.setAttribute('theme', 'dark');
-                                                localStorage.setItem('theme', 'dark');
-                                            }
-                                            else{
-                                                body.setAttribute('theme', 'light');
-                                                document.documentElement.setAttribute('theme', 'light');
-                                                localStorage.setItem('theme', 'light');
-                                            }
-                                        }
-                                        toggle.addEventListener('change', handleBackgroundChange);
-                                        if (localStorage.getItem('theme') === 'dark') {
-                                            toggle.checked = true;
-                                            handleBackgroundChange({ target: toggle }); // Trigger the initial change to set the dark mode
-                                        }
-                                    </script>
-                                    </div>
-                                    </body>
-                                    <div class="heading">
-                                        Terence's Gallery
-                                    </div>
+                                </label>                                    
+                                </div>
+                                </body>
+
+                                <button id="open-popup" class="about">About</button>
+
+                                <div class="popup" id="popup">
+                                    <button class="close-btn">
+                                        <i class="fa-regular fa-xmark fa-xl"></i>
+                                    </button>   
+                                    <h2>About</h2>
+                                    <p>Hi! This image gallery is a project I made this summer to learn some HTML and CSS
+                                        since I've never done any web dev before. It's basically my vsco (?)
+                                        Enjoy the pics and please lmk if you find any bugs/errors :&#41;
+                                    </p>
+                                </div>
+
+                                <div class="heading">
+                                    Terence's Gallery
+                                </div>
+
                                 <div class="gallery">
                                     <div class="image">
                                         <img src="images/album dynamic compressed/turtle.jpg"/> 
@@ -1387,7 +1422,45 @@
                 <script src="assets/js/breakpoints.min.js"></script>
                 <script src="assets/js/util.js"></script>
                 <script src="assets/js/main.js"></script>
-                <script src="assets/dark mode script.js"></script>
+                <script> //for opening "about" popup
+                    document.querySelector("#open-popup").addEventListener("click", function(){
+                        document.body.classList.add("active-popup");
+                    });
+                    document.querySelector(".popup .close-btn").addEventListener("click", function(){
+                        document.body.classList.remove("active-popup");
+                    });
+                </script>
+                <script> //for dark mode toggle
+                    const toggle = document.getElementById('darkmode-toggle');
+                    const popup = document.getElementById('popup');
+
+                    function setTheme(theme) {
+                        document.body.setAttribute('theme', theme);
+                        popup.setAttribute('theme', theme);
+                        document.documentElement.setAttribute('theme', theme);
+                        localStorage.setItem('theme', theme);
+                    }
+
+                    function handleBackgroundChange(event) {
+                        if (event.target.checked) {
+                            setTheme('dark');
+                        } else {
+                            setTheme('light');
+                        }
+                    }
+
+                    toggle.addEventListener('change', handleBackgroundChange);
+
+                    // Check local storage to set the initial theme
+                    if (localStorage.getItem('theme') === 'dark') {
+                        toggle.checked = true;
+                        handleBackgroundChange({ target: toggle }); // Trigger the initial change to set the dark mode
+                    }
+                    if (localStorage.getItem('theme') === 'light') {
+                        toggle.checked = false;
+                        handleBackgroundChange({ target: toggle }); // Trigger the initial change to set the dark mode
+                    }
+                </script>
 
         </body>
     </html>
