@@ -1,0 +1,27 @@
+{
+  "name": "gallery-beta",
+  "version": "1.0.0",
+  "description": "A responsive image gallery created with HTML and CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-gallery": "node build-gallery.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terencezeng6/gallery-beta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/terencezeng6/gallery-beta/issues"
+  },
+  "homepage": "https://github.com/terencezeng6/gallery-beta#readme",
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "exifr": "^7.1.3",
+    "sharp": "^0.34.5"
+  }
+}
