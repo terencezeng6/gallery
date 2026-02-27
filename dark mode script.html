@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,in initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const toggle = document.getElementById('darkmode-toggle');
+        function handleBackgroundChange(){
+            const body = document.body();
+            if (toggle.checked){
+                body.style.backgroundColor = 'black';
+            }
+            else{
+                body.style.backgroundColor = 'white';
+            }
+        }
+        darkModeToggle.addEventListener('change', handleBackgroundChange);
+        handleBackgroundChange();
+    </script>
+</body>
+</html>
